@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-g" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binyam G. | Animator & Video Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      // Set theme on page load to prevent FOUC (Flash of Unstyled Content)
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // NOTE: Base colors are for LIGHT MODE. Dark theme is applied via `dark:` prefixes.
+              'primary': '#FFFFFF',
+              'secondary': '#F1F5F9',
+              'accent-start': '#7C3AED',
+              'accent-end': '#DB2777',
+              'text-primary': '#0F172A',
+              'text-secondary': '#64748B',
+              'border-default': '#E2E8F0',
+            },
+            boxShadow: {
+              'glow-md': '0 0 15px rgba(124, 58, 237, 0.4)',
+              'glow-lg': '0 0 25px rgba(124, 58, 237, 0.5)',
+            },
+            keyframes: {
+              aurora: {
+                from: { backgroundPosition: '0% 50%' },
+                to: { backgroundPosition: '100% 50%' },
+              },
+              'fade-in': {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'particle-move': {
+                '0%, 100%': { transform: 'translate(0, 0)', opacity: '0.1' },
+                '25%': { transform: 'translate(20px, -30px)', opacity: '0.4' },
+                '50%': { transform: 'translate(-15px, 25px)', opacity: '0.2' },
+                '75%': { transform: 'translate(10px, 15px)', opacity: '0.5' },
+              },
+              'pan-right': {
+                '0%': { left: '-60%' },
+                '100%': { left: '100%' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '200% 0' },
+                '100%': { backgroundPosition: '-200% 0' }
+              }
+            },
+            animation: {
+              aurora: 'aurora 15s ease infinite alternate',
+              'fade-in': 'fade-in 0.5s ease-out forwards',
+              'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+              float: 'float 6s ease-in-out infinite',
+              'particle-move': 'particle-move linear infinite',
+              'pan-right': 'pan-right linear infinite',
+              shimmer: 'shimmer 4s linear infinite',
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.24.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^11.3.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-primary text-text-primary dark:bg-[#0A0A14] dark:text-[#F1F5F9] antialiased cursor-none">
+    <div class="fixed top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] -z-10"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
